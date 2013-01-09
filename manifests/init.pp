@@ -25,5 +25,4 @@ class postgresql (
     name    => $package_name,
     tag    => 'postgresql',
   }
-
 }

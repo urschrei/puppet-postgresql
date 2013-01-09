@@ -20,7 +20,12 @@ class postgresql::server (
   $service_name     = $postgresql::params::service_name,
   $service_provider = $postgresql::params::service_provider,
   $service_status   = $postgresql::params::service_status,
-  $config_hash      = {}
+  $config_hash      = {
+    'ip_mask_deny_postgres_user' => '0.0.0.0/32',
+    'ip_mask_allow_all_users' => '0.0.0.0/0',
+    'listen_addresses' => '*',
+    'postgres_password' => 'postgres',
+  }
 ) inherits postgresql::params {
 
   package { 'postgresql-server':
