@@ -28,7 +28,7 @@ class postgresql::server (
   }
 ) inherits postgresql::params {
 
-  package { 'postgresql-server':
+  package { [ 'postgresql-server', 'postgresql-server-dev-all' ]:
     ensure  => $package_ensure,
     name    => $package_name,
     tag     => 'postgresql',
